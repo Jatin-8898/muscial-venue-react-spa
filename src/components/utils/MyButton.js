@@ -7,6 +7,7 @@ const MyButton = (props) => {
     return (
         <Button
             href={props.link}
+            target={props.target}
             variant="contained"
             size="big"
             style={{
