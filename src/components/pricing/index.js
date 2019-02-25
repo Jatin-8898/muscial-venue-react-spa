@@ -1,17 +1,63 @@
 import React, { Component } from 'react'
+import MyButton from './../utils/MyButton'
 
 class Pricing extends Component {
+
+    state = {
+        prices:[100, 150, 250],
+        positions:['Balcony','Medium','Star'],
+        desc:[
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt uts',
+            'Dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea',
+            'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+        ],
+        linkto:['https://github.com/Jatin-8898','https://medium.com/@Jatin_8898','https://linkedin.com/in/jatin-varlyani-127290150/'],
+        delay:[500,0,500]
+
+    }
+
+    /* we have used the () instead of writing { render() } & box is each item on each iteration*/
+    showBoxes = () => (
+        this.state.prices.map((box,i)=>(
+            
+                <div className="pricing_item">
+                    <div className="pricing_inner_wrapper">
+                        
+                        <div className="pricing_title">
+                            <span>${this.state.prices[i]}</span>
+                            <span>{this.state.positions[i]}</span>
+                        </div>
+                        
+                        <div className="pricing_description">
+                            {this.state.desc[i]}
+                        </div>
+                        
+                        <div className="pricing_buttons">
+                            <MyButton
+                                text="Purchase"
+                                bck="#ffa800"
+                                color="#ffffff"
+                                link={this.state.linkto[i]}
+                                target="_blank"
+                            />
+                        </div>
+
+                    </div>
+                </div>
+        ))
+    )   
+
   render() {
     return (
       <div className="bck_black"> 
         <div className="center_wrapper pricing_section"> 
             <h2>Pricing</h2>
-        </div>
 
         <div className="pricing_wrapper"> 
-            boxes
+            {this.showBoxes()}
         </div>
 
+        </div>
       </div>
     )
   }
