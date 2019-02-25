@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MyButton from './../utils/MyButton'
+import Zoom from 'react-reveal/Zoom';
 
 class Pricing extends Component {
 
@@ -12,14 +13,14 @@ class Pricing extends Component {
             'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
         ],
         linkto:['https://github.com/Jatin-8898','https://medium.com/@Jatin_8898','https://linkedin.com/in/jatin-varlyani-127290150/'],
-        delay:[500,0,500]
+        delay:[600,100,600]
 
     }
 
     /* we have used the () instead of writing { render() } & box is each item on each iteration*/
     showBoxes = () => (
         this.state.prices.map((box,i)=>(
-            
+            <Zoom delay={this.state.delay[i]} key={i}>
                 <div className="pricing_item">
                     <div className="pricing_inner_wrapper">
                         
@@ -44,6 +45,7 @@ class Pricing extends Component {
 
                     </div>
                 </div>
+            </Zoom>
         ))
     )   
 
